@@ -1,0 +1,24 @@
+[package]
+name = "dll_outer"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+prost = "0.14"
+tonic = "0.14.5"
+tonic-prost = "0.14.5"
+tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
+
+[dependencies.windows]
+version = "0.*"
+features = [
+    "Win32_Foundation",
+    "Win32_System_SystemServices",
+    "Win32_UI_WindowsAndMessaging",
+]
+
+[build-dependencies]
+tonic-prost-build = "0.14.5"
